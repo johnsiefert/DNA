@@ -29,26 +29,23 @@ function paequorFactory(num, arr) {
 
         return this.dna
        },
-       compareDNA(arr){
-        for(let i = 0; i > this.dna.length; i++){
-          for(let j = 0; j > arr.length; j++){
-                if(this.dna[i] === arr[j]){
-                  let sum = (this.dna[i] / arr[j]) * 100
-                  console.log(sum)
-                `specimen#${this.specimenNum} and specimen#${this.specimenNum} have ${sum.toFixed()} DNA in common}`
-              }
-          }
-        }
-       },
+    compareDNA(pAequor) {
+      let differences = 0;
+      for (let i = 0; i < this.dna.length; i++){
+        if (this.dna[i]==pAequor.dna[i])
+        differences++;
+      }
+      differences = (differences/this.dna.length*100).toFixed(2);
+      console.log(`Specimen #${this.specimenNum} and specimen #${pAequor.specimenNum} have ${differences}% DNA in common`);
+    },
 
-  }
+        }
 }
 
- const dnaStrand = paequorFactory(1,['C', 'G', 'A', 'A', 'A', 'C', 'A', 'C', 'C', 'C', 'G', 'A', 'T', 'G', 'G' ])
- const dnaStrand2 = paequorFactory(2,['C', 'A', 'A', 'C', 'A', 'A', 'G', 'C', 'C', 'C', 'G', 'A', 'T', 'G', 'G' ])
-console.log(dnaStrand.compareDNA(['C', 'G', 'A', 'A', 'A', 'C', 'A', 'C', 'C', 'C', 'G', 'A', 'T', 'G', 'G' ]))
-console.log(dnaStrand2.compareDNA(['C', 'A', 'A', 'C', 'A', 'A', 'G', 'C', 'C', 'C', 'G', 'A', 'T', 'G', 'G' ]))
-
+let sample1 = paequorFactory(1,mockUpStrand());
+let sample2 = paequorFactory(2,mockUpStrand());
+sample1.compareDNA(sample2);
+sample.dna = mutate(sample);
 
 
 

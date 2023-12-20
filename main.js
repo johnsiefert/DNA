@@ -36,17 +36,31 @@ function paequorFactory(num, arr) {
         differences++;
       }
       differences = (differences/this.dna.length*100).toFixed(2);
-      console.log(`Specimen #${this.specimenNum} and specimen #${pAequor.specimenNum} have ${differences}% DNA in common`);
+      console.log(`specimen #${this.specimenNum} and specimen #${pAequor.specimenNum} have ${differences}% DNA in common`);
     },
+    willLikelySurvive(){
+      let count = 0;
+        for(let i= 0; i >this.dna.length; i++){
+          if(this.dna[i] === "C" || this.dna[i]==="G"){
+          count++
+        }
+         count = ((count/this.dna.length)*100)
+        }
+        if(count >= 60) {
+          return true;
+        }else {
+          return false
+        }
 
+    },
         }
 }
 
-let sample1 = paequorFactory(1,mockUpStrand());
-let sample2 = paequorFactory(2,mockUpStrand());
-sample1.compareDNA(sample2);
-sample.dna = mutate(sample);
 
+const storedSpecimens = [];
+for (i = 0; i < 30; i++) {
+  storedSpecimens.push(paequorFactory(i, mockUpStrand()));
+};
 
 
 
